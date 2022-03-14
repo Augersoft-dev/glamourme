@@ -225,6 +225,22 @@ module.exports = {
         // console.log(error);
       }
     },
+    getMainCategory: (parent, args, context, info) => {
+      return [
+        "Haircuts",
+        "Manicure",
+        "Hair Brading",
+        "Henna Tattoos",
+        "Eyebrow threading",
+        "Facials",
+        "Cupping",
+        "Foot Scrub Massage",
+        "Lashs",
+        "Hair Conditioning",
+        "Makeup",
+        "Waxing/Tinting",
+      ];
+    },
     getSubCategory: (parent, args, context, info) => {
       const { mCat } = args;
       if (mCat === "Home") {

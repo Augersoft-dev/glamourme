@@ -2,56 +2,12 @@ const { gql } = require("apollo-server");
 
 module.exports = gql`
   type listing {
-    id: Int
-    user_id: Int
-    category: String
-    subCategory: String
-    title: String
-    typeOfResidency: String
-    address: String
-    latitude: Float
-    longitude: Float
-    noBedroom: Int
-    noBed: Int
-    noBath: Int
-    guestAllowed: Int
-    # amenity
-    pool: Boolean
-    hotTub: Boolean
-    patio: Boolean
-    bbqGrill: Boolean
-    firePit: Boolean
-    poolTable: Boolean
-    indoorFireplace: Boolean
-    outDoorDiningArea: Boolean
-    excerciseEquipment: Boolean
-    # guest favourites
-    wifi: Boolean
-    tv: Boolean
-    kitchen: Boolean
-    washingMacine: Boolean
-    freeParking: Boolean
-    paidParking: Boolean
-    acUnit: Boolean
-    workspace: Boolean
-    outdoorShower: Boolean
-    # saftey items
-    smokeAlarm: Boolean
-    firstAid: Boolean
-    carbonMonoxideAlarm: Boolean
-    fireExtinguisher: Boolean
-    # highlights
-    highlight1: String
-    highlight2: String
-    # security questions
-    securityCamera: Boolean
-    weapons: Boolean
-    dangerousAnimal: Boolean
-    description: String
-    pricing: Int
-    active: Boolean
-    images: [String]
-    createdAt: String
+    masterCategory: String!
+    secondaryCategory: String!
+
+    address: String #incase of in call service
+    longitude: Float #incase of in call
+    latitude: Float #incase of in call
   }
   input listingObj {
     category: String!
@@ -152,6 +108,7 @@ module.exports = gql`
     generateAccoutLink(ID: String!): String
     getBookingDetails(ID: Int): [bookingDetail] #used to get all details of the listing booker
     getBookingDatesByID(ID: Int): [dates] #used to get when dates that specific listing is booked
+    getMainCategory(): [String]
     getSubCategory(mCat: String): [String]
     propertyTypes: [String]
     adminLogin(email: String, password: String): String

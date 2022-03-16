@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:glamourme/view/onboarding/onboarding.dart';
+import 'package:glamourme/view/theme/theme.dart';
 
 import 'view/home/home.dart';
 
@@ -13,10 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Glamourme',
+      theme: customTheme(),
       home: const HomePage(),
     );
   }

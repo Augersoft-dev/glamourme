@@ -1,7 +1,4 @@
 
-
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 // App Colors
@@ -12,7 +9,7 @@ var secondaryColor = const Color(0xFF877547);
 var blackColor = const Color(0xFF3C3932);
 var blackLightColor = const Color(0xFF808080);
 var buttonTextColor = const Color(0xFF53123A);
-var backgroundColor = const Color(0xFF53123A);
+var backgroundColor = const Color(0xFFE5E5E5);
 var whiteColor = const Color(0xFFFFFFFF);
 var whiteColorWithOpacity = const Color(0xFFFFFFFF).withOpacity(0.6);
 
@@ -20,10 +17,10 @@ var whiteColorWithOpacity = const Color(0xFFFFFFFF).withOpacity(0.6);
 
 // TextStyles
 splashTitleTextStyle(){
-  return const TextStyle(
+  return TextStyle(
     fontFamily: 'Poppins',
-    fontSize: 36,
-    color: Colors.white,
+    fontSize: 20,
+    color: whiteColor,
     fontWeight: FontWeight.bold
   );
 }
@@ -99,5 +96,10 @@ brownSubtitleTextStyle(){
     fontWeight: FontWeight.w400
   );
 }
+
+// Paddings
+double padding = 24.0;
+double containerRoundCorner = 12.0;
+double buttonRoundCorner = 7.0;
 
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glamourme/view/navigation/bavigation_bar.dart';
 import 'package:glamourme/view/onboarding/onboarding.dart';
 import 'package:glamourme/view/theme/theme.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Glamourme',
       theme: customTheme(),
-      home: const HomePage(),
+      home: OnboardingPage(),
     );
   }
 }

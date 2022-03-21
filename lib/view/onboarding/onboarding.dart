@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:glamourme/view/home/home.dart';
+import 'package:glamourme/view/navigation/bavigation_bar.dart';
 import 'package:glamourme/view/style.dart';
 
 import '../../model/onboarding_content.dart';
@@ -140,7 +141,7 @@ class CustomBtn extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => const HomePage()),
+                builder: (_) => NavigationPage()),
               
             );
           }

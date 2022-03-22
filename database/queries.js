@@ -40,38 +40,20 @@ const addImages = (images) => {
   });
 };
 const addListing = (arr, id) => {
+  // console.log(arr)
   const images = arr.splice(-1, 1);
   // console.log(images);
   return new Promise((resolve, reject) => {
-    const query = `INSERT INTO listings 
-      (user_id,category,subCategory,title,typeOfResidency,address,latitude,longitude,noBedroom,noBed,noBath,guestAllowed,
-      pool,hotTub,patio,bbqGrill,firePit,poolTable,indoorFireplace,outDoorDiningArea,excerciseEquipment,
-      wifi,tv,kitchen,washingMacine,freeParking,paidParking,acUnit,workspace,outdoorShower,
-      smokeAlarm,firstAid,carbonMonoxideAlarm,fireExtinguisher,
-      highlight1,highlight2,
-      securityCamera,weapons,dangerousAnimal,
-      description,pricing,active,approve)
-      values
-      (?,?,?,?,?,?,?,?,?,?,?,?,
-      ?,?,?,?,?,?,?,?,?,
-      ?,?,?,?,?,?,?,?,?,
-      ?,?,?,?,
-      ?,?,
-      ?,?,?,
-      ?,?,?,?
-      );`;
+    const query = "INSERT INTO listings (user_id,category,subCategory,title,description,latitude,longitude,address,price) values(?,?,?,?,?,?,?,?,?);";
     arr.unshift(id);
-    arr.push("pending");
+    console.log(arr)
     db.query(query, arr, async (err, result) => {
-      // console.log(result);
       if (err) {
-        return reject("SOME ERROR OCCURED PEASE TRY AGAIN!");
+        console.log(err)
+        return reject(err);
       }
-      // console.log(result.insertId);
       if (result.affectedRows) {
-        // console.log("if");
         const imagesArray = images[0].map((o, i) => {
-          // console.log(images[i]);
           return [result.insertId, o];
         });
         try {
@@ -80,7 +62,6 @@ const addListing = (arr, id) => {
         } catch (error) {
           console.log(error);
         }
-        // console.log(imagesArray);
 
         resolve("LISTING ADDED SUCCESSFULLY FOR REVIEW");
       } else {
@@ -356,7 +337,7 @@ const getUserIDbyListingID = (listingID) => {
 const signUPData = (name, email, socialMediaToken) => {
   return new Promise((resolve, reject) => {
     const query =
-      "INSERT into users(email,name,socialMediaToken) VALUES(?,?,?)";
+      "INSERT into users(email,username,socialMediaToken) VALUES(?,?,?)";
     db.query(query, [email, name, socialMediaToken], (err, result) => {
       if (err) {
         console.log(err);

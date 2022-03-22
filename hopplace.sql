@@ -1,14 +1,11 @@
 SHOW DATABASES;
-
-USE hopplace;
+CREATE DATABASE glamourme;
+USE glamourme;
 
 
 SHOW TABLES;
 
-CREATE TABLE users(
-	id int primary key auto_increment,
-    username varchar(50) not null
-);
+
 
 ALTER TABLE users CHANGE username email varchar(50);
 ALTER TABLE users ADD COLUMN customerID VARCHAR(50) AFTER email;
@@ -23,62 +20,40 @@ INSERT INTO users(username) values
 ("ali"),
 ("test"),
 ("new");
-
+SHOW tables;
 SELECT * FROM users;
+drop table listings;
 CREATE TABLE listings(
 	id int primary key auto_increment,
     user_id int,
     category varchar(50) not null,
     subCategory varchar(50) not null,
-    typeOfResidency varchar(50) not null,
-    
-    address varchar(100) not null,
-    latitude float not null,
-    longitude float not null,
-    
-    guestAllowed int not null,
-    noBedroom int not null,
-    noBed int not null,
-    noBath int not null,
-    -- amenity
-    pool bool not null,
-    hotTub bool not null,
-    patio bool not null,
-    bbqGrill bool not null,
-    firePit bool not null,
-    poolTable bool not null,
-    indoorFireplace bool not null,
-    outDoorDiningArea bool not null,
-    excerciseEquipment bool not null,
-    -- guest favourites
-    wifi bool not null,
-    tv bool not null,
-    kitchen bool not null,
-    washingMacine bool not null,
-    freeParking bool not null,
-    paidParking bool not null,
-    acUnit bool not null,
-    workspace bool not null,
-    outdoorShower bool not null,
-    -- saftey items
-    smokeAlarm bool not null,
-    firstAid bool not null,
-    carbonMonoxideAlarm bool not null,
-    fireExtinguisher bool not null,
-    -- highlights
-    highlight1 varchar(50),
-    highlight2 varchar(50),
-    -- security question
-    securityCamera bool not null,
-    weapons bool not null,
-    dangerousAnimal bool not null,
-    
-    description text not null,
-    pricing int not null,
-    active bool not null,
-    
+    latitude float,
+    longitude float,
+    address float,
+    price float,
+    title text,
+    description text,
     foreign key(user_id) references users(id) on delete cascade
 );
+select * FROM listings;
+DESCRIBE TABLE listings;
+CREATE TABLE images(
+	user_id int not null,
+    img_url varchar(255),
+    foreign key(user_id) references users(id) on delete cascade
+);
+select * FROM listings;
+SELECT * FROM users;
+CREATE TABLE users(
+	id int primary key auto_increment,
+    username varchar(50) not null,
+    socialMediaToken varchar(255) unique,
+    stripeID text,
+    customerID text,
+    email text
+);
+DROP TABLE users;
 DESC users;
 CREATE TABLE bookedlistings(
 	id int primary key auto_increment,
@@ -95,11 +70,7 @@ SELECT * FROM bookedlistings;
 SELECT CURDATE();
 insert into bookedlistings (listing_id,bookerID,multiple_days,start_day,end_day) values(2,2,false,"2021-11-22","2021-11-24");
 drop table booked_listings;
-CREATE TABLE images(
-	user_id int not null,
-    img_url varchar(255),
-    foreign key(user_id) references users(id) on delete cascade
-);
+
 DROP TABLE images;
 SELECT * FROM images;
 INSERT into images(user_id,img_url) values(2,"ausdkjasndaksdnasjkdnjkasdakjsdsa");

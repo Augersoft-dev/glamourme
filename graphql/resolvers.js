@@ -227,28 +227,52 @@ module.exports = {
     },
     getMainCategory: (parent, args, context, info) => {
       return [
-        "Haircuts",
-        "Manicure",
-        "Hair Brading",
-        "Henna Tattoos",
-        "Eyebrow threading",
-        "Facials",
-        "Cupping",
-        "Foot Scrub Massage",
-        "Lashs",
-        "Hair Conditioning",
-        "Makeup",
-        "Waxing/Tinting",
+        "Men's haircut",
+        "Women's haircut",
+        "Manicures",
+        "Pedicure",
+        "Hair Braiding",
+        "Henna",
+        "Eyebrow Treatment",
+        "Facial Service",
+        "Women's Waxing",
+        "Men's Waxing"
       ];
+    },
+    
+    login: async (parent, args, context, info) => {
+      const { token } = args;
+      try {
+        const result = await checkIfExist(token);
+        return result;
+      } catch (error) {
+        return error;
+      }
+      //jsonwebtoken will be created here
+      // console.log(result);
     },
     getSubCategory: (parent, args, context, info) => {
       const { mCat } = args;
-      if (mCat === "Home") {
-        return ["Villa", "Condo", "Apartment", "Pant House"];
-      } else if (mCat === "Entertainment") {
-        return ["Movie Theatre", "Table Tennis", "Basketball Court", "Gym"];
-      } else if (mCat === "Gamming") {
-        return ["Gamming Computer", "PS5", "XBOX one", "ARCADE"];
+      if (mCat === "Men's haircut") {
+        return ["Taper and Fade", "Fade vs Taper", "Low Fade", "Mid Fade","High Fade","Bald Fade","Undercut","Quiff Haircut","Pompadour","Comb Over","Slick Back","Faux Hawk","Buzz Cut","Crew Cut","Textured French Crop","Side Part","Spiky Hair","Man Bun","Top Knot"];
+      } else if (mCat === "Women's haircut") {
+        return ["BLUNT BOB", "SHORT WITH LONG BANGS", "MODERN MULLET", "LONG PIXIE","TAPERED LAYERS","SMOOTH LOB","LONG LAYERS","SLEEK AND STRAIGHT","LOOSE CURLY AFRO","SPIKY PIXIE","CHOPPY LOB","CURTAIN BANGS","THE UNDERCUT","GELLED EDGES","ANGULAR AFRO"];
+      } else if (mCat === "MANICURES") {
+        return ["Hot oil manicure", "Spa manicure", "Soak-off gel manicure", "Paraffin wax manicure","Brazillian manicure","Shellac manicure","3D manicure","Acrylic manicure","Basic manicure","Hot stone manicure","Mirror manicure","Reverse French manicure",""];
+      }else if(mCat==="Pedicure"){
+        return ["CHAMPAGNE PEDICURE","PARAFFIN PEDICURE","HOT STONE PEDICURE","HERBAL PEDICURE","CBD PEDICURE","Basic Pedicure","Mini Pedicure","Spa Pedicure","French Pedicure","Gel Pedicure","Athletic Pedicure","Fish Pedicure","Waterless Pedicure"]
+      }else if(mCat==="Hair Braiding"){
+        return ["CORNROW SYLES","FRENCH BRAID","MICRO BRAID","TWIST SYLES","DREAD LOCKS","SINGLE BRAIDS","SEW-IN WEAVE STYLES"]
+      }else if(mCat==="Henna"){
+        return ["Brown Henna","Black Henna","Green Henna"]
+      }else if(mCat==="Eyebrow Treatment"){
+        return ["Trimming and Tweezing","Threading","Waxing","Brow Tinting","Microblading","Brow Extensions","Brow Lamination","Brow Henna"]
+      }else if(mCat==="Facial Service"){
+        return ["Classic Facial","Basic Cleanup Facial","Acne Reduction Facial","Fruit Facial Treatment","Lymphatic Massage Facial","Aromatherapy Facial","Microcurrent Facial","Microdermabrasion","Antioxidant Facial","Wine Facial","LED Light Therapy","Glycolic Acid Facial","Laser Resurfacing","Collagen Facial","Acupuncture Facial","Photo Facial Treatment","Skin Lightening Facial","Hydrating Facial","Chemical Peel Treatment","Hydrafacial"]
+      }else if(mCat==="Women's Waxing"){
+        return ["Brazilian Bikini Wax","Maintenance Brow Wax","Maintenance Tweeze & Shape","Lip Wax","Half Chin Wax","Full Chin Wax","Sides Of Face","Underarm Wax","Brief Line Bikini Wax","High Low Bikini Wax","Half Arm Wax","Full Arm Wax","Half Leg Wax","Full Leg Wax"]
+      }else if(mCat==="Men's Waxing"){
+        return ["Men's Full Arm Wax","Men's Brow Control","Men's Back Wax","Men's Chest Wax",""]
       }
     },
     getListingsTobeApproved: async (parent, args, context, info) => {
@@ -405,17 +429,6 @@ module.exports = {
       } catch (error) {
         return error;
       }
-    },
-    login: async (parent, args, context, info) => {
-      const { token } = args;
-      try {
-        const result = await checkIfExist(token);
-        return result;
-      } catch (error) {
-        return error;
-      }
-      //jsonwebtoken will be created here
-      // console.log(result);
     },
     signup: async (parent, args, context, info) => {
       // console.log("wow");

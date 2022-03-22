@@ -13,49 +13,11 @@ module.exports = gql`
     category: String!
     subCategory: String!
     title: String!
-    typeOfResidency: String!
-    address: String!
+    description: String!
     latitude: Float
     longitude: Float
-    noBedroom: Int
-    noBed: Int
-    noBath: Int
-    guestAllowed: Int
-    # amenity
-    pool: Boolean
-    hotTub: Boolean
-    patio: Boolean
-    bbqGrill: Boolean
-    firePit: Boolean
-    poolTable: Boolean
-    indoorFireplace: Boolean
-    outDoorDiningArea: Boolean
-    excerciseEquipment: Boolean
-    # guest favourites
-    wifi: Boolean
-    tv: Boolean
-    kitchen: Boolean
-    washingMacine: Boolean
-    freeParking: Boolean
-    paidParking: Boolean
-    acUnit: Boolean
-    workspace: Boolean
-    outdoorShower: Boolean
-    # saftey items
-    smokeAlarm: Boolean
-    firstAid: Boolean
-    carbonMonoxideAlarm: Boolean
-    fireExtinguisher: Boolean
-    # highlights
-    highlight1: String
-    highlight2: String
-    # security questions
-    securityCamera: Boolean
-    weapons: Boolean
-    dangerousAnimal: Boolean
-    description: String
-    pricing: Int
-    active: Boolean
+    address: String
+    pricing: Int!
     images: [String]
   }
   type listOfListings {
@@ -108,7 +70,7 @@ module.exports = gql`
     generateAccoutLink(ID: String!): String
     getBookingDetails(ID: Int): [bookingDetail] #used to get all details of the listing booker
     getBookingDatesByID(ID: Int): [dates] #used to get when dates that specific listing is booked
-    getMainCategory(): [String]
+    getMainCategory: [String]
     getSubCategory(mCat: String): [String]
     propertyTypes: [String]
     adminLogin(email: String, password: String): String
@@ -117,6 +79,7 @@ module.exports = gql`
     getImagesByListingID(ID: Int): [String]
     getListingsTobeApproved(token: String, listingID: Int): [toBeApproved] #get list of listing that needs tp be approved
     getFavListings(token: String): listOfListings
+    login(token: String): String
   }
   type toBeApproved {
     bookerID: Int
@@ -180,7 +143,6 @@ module.exports = gql`
       noOfDays: Int
     ): paymentIntentSecret
     updateUserToken(token: String, newToken: String!): String
-    login(token: String): String
     signup(SignUpData: signUpData): String
     changeApproval(
       listingID: Int

@@ -15,7 +15,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server.listen().then(({ url }) => {
+server.listen(4001).then(({ url }) => {
   // createSeller("test@gmail.com");
   // createSetupIntent("cus_KQ1r6dANeZb9Lp");
   // accountLinks("acct_1Jtvl2RVMEm2ECK0");

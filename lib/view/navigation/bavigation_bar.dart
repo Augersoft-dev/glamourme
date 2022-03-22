@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glamourme/view/chat/chat.dart';
 import 'package:glamourme/view/map/map.dart';
+import 'package:glamourme/view/overview/overview.dart';
 import 'package:glamourme/view/profile/profile.dart';
 import 'package:glamourme/view/style.dart';
 
@@ -61,7 +62,7 @@ class _NavigationPageState extends State<NavigationPage> {
           HomePage(),
           // MapPage(),
           ChatPage(),
-          ProfilePage(),
+          OverviewPage(),
         ],
         controller: _pageController,
         onPageChanged: onPageChanged,
@@ -84,9 +85,9 @@ class _NavigationPageState extends State<NavigationPage> {
               // inactiveColor: Colors.grey,
               items: [
                 BottomNavigationBarItem(icon: Image.asset('assets/icons/home.png',width: 24,height: 24,color: pageIndex==0?primaryColor:Colors.grey,),label: 'Home'),
-                BottomNavigationBarItem(icon: Image.asset('assets/icons/map.png',width: 24,height: 24,color: pageIndex==1?primaryColor:Colors.grey,),label: 'Home'),
-                BottomNavigationBarItem(icon: Image.asset('assets/icons/chat.png',width: 24,height: 24,color: pageIndex==2?primaryColor:Colors.grey,),label: 'Home'),
-                BottomNavigationBarItem(icon: Image.asset('assets/icons/profile.png',width: 24,height: 24,color: pageIndex==3?primaryColor:Colors.grey,),label: 'Home'),
+                BottomNavigationBarItem(icon: Image.asset('assets/icons/map.png',width: 24,height: 24,color: pageIndex==1?primaryColor:Colors.grey,),label: 'Map'),
+                BottomNavigationBarItem(icon: Image.asset('assets/icons/chat.png',width: 24,height: 24,color: pageIndex==2?primaryColor:Colors.grey,),label: 'Chat'),
+                BottomNavigationBarItem(icon: Image.asset('assets/icons/profile.png',width: 24,height: 24,color: pageIndex==3?primaryColor:Colors.grey,),label: 'Profile'),
               ]),
         ),
       ),

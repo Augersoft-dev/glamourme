@@ -10,14 +10,14 @@ class CustomBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 55,
-      margin: const EdgeInsets.all(40),
+      //margin: const EdgeInsets.all(40),
       width: double.infinity,
       child: FlatButton(
         child: Text(
             text),
-        onPressed: ()=>onPress,
+        onPressed: onPress,
         color: Theme.of(context).primaryColor,
         textColor: buttonTextColor,
         shape: RoundedRectangleBorder(

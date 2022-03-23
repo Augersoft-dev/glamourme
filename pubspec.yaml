@@ -31,6 +31,9 @@ dependencies:
   flutter_google_places: ^0.3.0
   location: ^4.3.0
 
+  # Calander dependencies
+  table_calendar: ^3.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

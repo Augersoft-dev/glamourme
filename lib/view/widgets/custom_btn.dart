@@ -11,7 +11,7 @@ class CustomBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: customContainerHeight,
       //margin: const EdgeInsets.all(40),
       width: double.infinity,
       child: FlatButton(

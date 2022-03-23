@@ -101,5 +101,6 @@ brownSubtitleTextStyle(){
 double padding = 24.0;
 double containerRoundCorner = 12.0;
 double buttonRoundCorner = 7.0;
+double customContainerHeight =55;
 
 

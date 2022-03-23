@@ -62,7 +62,7 @@ class _NavigationPageState extends State<NavigationPage> {
           HomePage(),
           // MapPage(),
           ChatPage(),
-          OverviewPage(),
+          ProfilePage(),
         ],
         controller: _pageController,
         onPageChanged: onPageChanged,

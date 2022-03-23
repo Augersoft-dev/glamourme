@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glamourme/utils/style.dart';
 
+import '../overview/overview.dart';
 import '../widgets/ads_widget.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/specialist_overview.dart';
@@ -66,7 +67,9 @@ class HomePage extends StatelessWidget {
                   mainAxisSpacing: 10  
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SpecialistOverview(height: height, width: width);  
+                return InkWell(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => OverviewPage(),)),
+                  child: SpecialistOverview(height: height, width: width));  
               },  
             ), 
                 

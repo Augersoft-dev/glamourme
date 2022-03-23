@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glamourme/view/payment/payment.dart';
 import 'package:glamourme/view/shedule/set_shedule.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 import 'package:glamourme/view/widgets/custom_btn.dart';
 
 class BookingPage extends StatefulWidget {

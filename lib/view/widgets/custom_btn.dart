@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 
 
 class CustomBtn extends StatelessWidget {

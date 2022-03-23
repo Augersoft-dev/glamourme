@@ -4,7 +4,7 @@ import 'package:glamourme/view/chat/chat.dart';
 import 'package:glamourme/view/map/map.dart';
 import 'package:glamourme/view/overview/overview.dart';
 import 'package:glamourme/view/profile/profile.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 
 import '../home/home.dart';
 

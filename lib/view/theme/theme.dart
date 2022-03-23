@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 
 ThemeData customTheme() {
     final ThemeData base = ThemeData.light();

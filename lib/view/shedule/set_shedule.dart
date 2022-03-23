@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../widgets/specialist_overview.dart';

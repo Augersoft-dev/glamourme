@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 
 import '../widgets/ads_widget.dart';
 import '../widgets/search_bar.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glamourme/view/booking/booking.dart';
-import 'package:glamourme/view/style.dart';
+import 'package:glamourme/utils/style.dart';
 import 'package:glamourme/view/widgets/custom_btn.dart';
 
 class OverviewPage extends StatefulWidget {

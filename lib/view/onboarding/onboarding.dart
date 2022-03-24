@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:glamourme/view/home/home.dart';
-import 'package:glamourme/view/navigation/bavigation_bar.dart';
 import 'package:glamourme/utils/style.dart';
-
 import '../../model/onboarding_content.dart';
+import '../auth/login/login.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -66,7 +64,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         children: [
                           SvgPicture.asset(
                             contents[i].image,
-                            height: height*.25,
+                            height: height*.2,
                           ),
                           const SizedBox(height: 15,),
                           Text(
@@ -141,7 +139,7 @@ class CustomBtn extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => NavigationPage()),
+                builder: (_) => LoginPage()),
               
             );
           }

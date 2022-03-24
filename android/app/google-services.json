@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "454768255710",
+    "firebase_url": "https://glamourme-default-rtdb.firebaseio.com",
+    "project_id": "glamourme",
+    "storage_bucket": "glamourme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454768255710:android:960c46bc8d3d96ab86184f",
+        "android_client_info": {
+          "package_name": "com.example.glamourme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454768255710-su71scc910jmd52r618ru5prfgn8k9od.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.glamourme",
+            "certificate_hash": "09d083a311afebcc017bc81a9f8890e34c7e0124"
+          }
+        },
+        {
+          "client_id": "454768255710-ag7uqa802fki20llfjggb5rr9o7agf2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA67vt8KkpWt5NnVmj5B5_B61SvOl61InA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454768255710-ag7uqa802fki20llfjggb5rr9o7agf2p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

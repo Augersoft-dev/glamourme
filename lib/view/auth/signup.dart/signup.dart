@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:glamourme/utils/style.dart';
 import 'package:glamourme/view/auth/login/login.dart';
+import 'package:glamourme/view/home/home.dart';
+import 'package:glamourme/view/navigation/bavigation_bar.dart';
 import 'package:glamourme/view/widgets/custom_btn.dart';
 import 'package:provider/provider.dart';
 
@@ -149,7 +151,9 @@ class _SignupPageState extends State<SignupPage> {
                         onPressed: () {
                           final provider =
               Provider.of<GoogleSignInProvider>(context, listen: false);
-          provider.googleLogin();
+          provider.googleLogin().then((value) => Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage())));
+          HomePage();
+
                         },
                         color: backgroundColor,
                         textColor: buttonTextColor,
@@ -181,21 +185,21 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(
                 height: height * .05,
               ),
-              TextFieldContainer(
-                child: TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.person_outline,
-                      color: primaryColor,
-                    ),
-                    hintText: "Username",
-                    hintStyle: subTitleTextStyle(),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
+              // TextFieldContainer(
+              //   child: TextFormField(
+              //     textInputAction: TextInputAction.next,
+              //     keyboardType: TextInputType.emailAddress,
+              //     decoration: InputDecoration(
+              //       icon: Icon(
+              //         Icons.person_outline,
+              //         color: primaryColor,
+              //       ),
+              //       hintText: "Username",
+              //       hintStyle: subTitleTextStyle(),
+              //       border: InputBorder.none,
+              //     ),
+              //   ),
+              // ),
               TextFieldContainer(
                 child: TextFormField(
                   textInputAction: TextInputAction.next,
@@ -260,43 +264,43 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
               // TODO: Un-comment to re enter password
-              // TextFieldContainer(
-              //   child: TextFormField(
-              //     obscureText: hidePassword,
-              //     textInputAction: TextInputAction.done,
-              //     decoration: InputDecoration(
-              //       hintText: "Confirm Password",
-              //       hintStyle: subTitleTextStyle(),
-              //       icon: Icon(
-              //         Icons.lock_outline,
-              //         color: primaryColor,
-              //       ),
-              //       suffixIcon: IconButton(
-              //           color: primaryColor,
-              //           icon: Icon(
-              //             hidePassword
-              //                 ? Icons.visibility_off
-              //                 : Icons.visibility,
-              //             color: hidePassword ? Colors.grey : primaryColor,
-              //           ),
-              //           onPressed: () {
-              //             setState(() {
-              //               hidePassword = !hidePassword;
-              //             });
-              //           }),
-              //       border: InputBorder.none,
-              //       errorStyle:
-              //           TextStyle(color: Colors.redAccent, fontSize: 15),
-              //     ),
-              //     controller: confirmPasswordController,
-              //     validator: (value) {
-              //       if (value == null || value.isEmpty) {
-              //         return 'Please Enter Password';
-              //       }
-              //       return null;
-              //     },
-              //   ),
-              // ),
+              TextFieldContainer(
+                child: TextFormField(
+                  obscureText: hidePassword,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    hintText: "Confirm Password",
+                    hintStyle: subTitleTextStyle(),
+                    icon: Icon(
+                      Icons.lock_outline,
+                      color: primaryColor,
+                    ),
+                    suffixIcon: IconButton(
+                        color: primaryColor,
+                        icon: Icon(
+                          hidePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: hidePassword ? Colors.grey : primaryColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            hidePassword = !hidePassword;
+                          });
+                        }),
+                    border: InputBorder.none,
+                    errorStyle:
+                        TextStyle(color: Colors.redAccent, fontSize: 15),
+                  ),
+                  controller: confirmPasswordController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Password';
+                    }
+                    return null;
+                  },
+                ),
+              ),
               SizedBox(
                 height: padding / 2,
               ),

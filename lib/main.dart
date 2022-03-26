@@ -24,10 +24,12 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glamourme/utils/style.dart';
 import 'package:glamourme/view/onboarding/onboarding.dart';
 import 'package:glamourme/view/theme/theme.dart';
+import 'package:provider/provider.dart';
+
+import 'model/google_signin.dart';
 // import 'package:glamourme/model/onboarding_content.dart';
 // import 'package:glamourme/view/authentication/authentication_bloc.dart';
 // import 'package:glamourme/view/onboarding/onboarding.dart';
@@ -116,16 +118,20 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
       );
     }
 
-    return MaterialApp(
-      theme: customTheme(),
-        // theme: ThemeData(
-        //     snackBarTheme: const SnackBarThemeData(
-        //         contentTextStyle: TextStyle(color: Colors.white)),
-        //     colorScheme: ColorScheme.fromSwatch()
-        //         .copyWith(secondary:  Color(primaryColor))),
-        debugShowCheckedModeBanner: false,
-        color: primaryColor,
-        home:  OnboardingPage());
+    return ChangeNotifierProvider(
+      create: (context)=>GoogleSignInProvider(),
+      child: MaterialApp(
+        
+        theme: customTheme(),
+          // theme: ThemeData(
+          //     snackBarTheme: const SnackBarThemeData(
+          //         contentTextStyle: TextStyle(color: Colors.white)),
+          //     colorScheme: ColorScheme.fromSwatch()
+          //         .copyWith(secondary:  Color(primaryColor))),
+          debugShowCheckedModeBanner: false,
+          color: primaryColor,
+          home:  OnboardingPage()),
+    );
   }
 
   @override

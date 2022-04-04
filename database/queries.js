@@ -81,17 +81,17 @@ const filterByRadius = (lat, long, mCat, sCat) => {
     if (lat && long && mCat && sCat) {
       // console.log("is");
       query =
-        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 AND active=true AND approve='approved' AND category=(?) AND subCategory=(?) ORDER BY distance";
+        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 AND category=(?) AND subCategory=(?) ORDER BY distance";
       // console.log(1);
       arr = [lat, long, lat, mCat, sCat];
     } else if (lat && long && mCat) {
       console.log("tis");
       query =
-        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 AND active=true AND approve='approved' AND category=(?) ORDER BY distance";
+        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 AND category=(?) ORDER BY distance";
       arr = [lat, long, lat, mCat];
     } else {
       query =
-        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 AND active=true AND approve='approved' ORDER BY distance";
+        "SELECT *, (3959 * acos (cos(radians(?))* cos(radians(latitude))* cos(radians(longitude) - radians(?))+ sin (radians(?))* sin(radians(latitude)))) AS distance FROM listings HAVING distance < 100 ORDER BY distance";
       arr = [lat, long, lat];
     }
     // console.log(query);

@@ -2,12 +2,15 @@ const { gql } = require("apollo-server");
 
 module.exports = gql`
   type listing {
-    masterCategory: String!
-    secondaryCategory: String!
-
-    address: String #incase of in call service
-    longitude: Float #incase of in call
-    latitude: Float #incase of in call
+    category: String!
+    subCategory: String!
+    title: String!
+    description: String!
+    latitude: Float
+    longitude: Float
+    address: String
+    pricing: Int!
+    images: [String]
   }
   input listingObj {
     category: String!

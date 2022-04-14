@@ -127,13 +127,13 @@ const deleteByID = (ID) => {
 
 const fetchFavListing = async (id) => {
   const query =
-    "SELECT * FROM listings inner join fav ON listings.id=fav.listing_id and bookerID=?";
+    "SELECT * FROM listings inner join fav ON listings.id=fav.listingID and userID=?";
   return new Promise((resolve, reject) => {
     db.query(query, [id], (err, result) => {
       if (err) {
         reject("UNABLE TO GET A RESPONSE");
       }
-      if (result.length) {
+      if (result) {
         resolve(result);
       } else {
         reject("NO LISTINGS TO FETCH");
@@ -557,7 +557,7 @@ const approveListingWithCmnt = async (listingID, approve, cmnt, adminID) => {
   }
 };
 const addFav = (id, listingID) => {
-  const query = "INSERT INTO fav(listing_id,bookerID) values(?,?)";
+  const query = "INSERT INTO fav(listingID,userID) values(?,?)";
   return new Promise((resolve, reject) => {
     db.query(query, [listingID, id], (err, result) => {
       if (err) {
@@ -572,7 +572,7 @@ const addFav = (id, listingID) => {
   });
 };
 const removeFav = (id, listingID) => {
-  const query = "DELETE FROM fav WHERE listing_id=? AND bookerID=?";
+  const query = "DELETE FROM fav WHERE listingID=? AND userID=?";
   return new Promise((resolve, reject) => {
     db.query(query, [listingID, id], (err, result) => {
       if (err) {

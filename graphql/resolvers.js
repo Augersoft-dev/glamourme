@@ -446,7 +446,7 @@ module.exports = {
     addFavListing: async (parent, args, context, info) => {
       const { token, listingID } = args;
       const decoded = await verifyToken(token);
-      console.log(decoded.id[0].id);
+      // console.log(decoded.id[0].id);
       try {
         const addListing = await addFav(decoded.id[0].id, listingID);
         console.log(addListing);
@@ -458,7 +458,7 @@ module.exports = {
     removeFavListing: async (parent, args, context, info) => {
       const { token, listingID } = args;
       const decoded = await verifyToken(token);
-      console.log(decoded.id[0].id);
+      // console.log(decoded.id[0].id);
       try {
         const removeListing = await removeFav(decoded.id[0].id, listingID);
         return removeListing;

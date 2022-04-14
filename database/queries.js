@@ -5,7 +5,7 @@ const { signToken } = require("../JWT");
 const getUsersListing = (userID) => {
   return new Promise((resolve, reject) => {
     const query =
-      "SELECT * FROM listings INNER JOIN(SELECT i.user_id,GROUP_CONCAT(i.img_url) as images FROM images i GROUP BY user_id) as T ON listings.id=T.listing_id AND listings.user_id=?";
+      "SELECT * FROM listings INNER JOIN(SELECT i.user_id,GROUP_CONCAT(i.img_url) as images FROM images i GROUP BY user_id) as T ON listings.id=T.user_id AND listings.user_id=?";
     db.query(query, [userID], async (err, result, field) => {
       if (err) {
         reject("THERE WAS AN ERROR WHILE FETCHING THE INFORMATION");
